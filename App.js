@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#fffdf6',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -18,10 +18,34 @@ const styles = StyleSheet.create({
     backgroundColor: '#265366',
     justifyContent: 'center',
     alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.9,
+    shadowRadius: 3,
+    zIndex: 10,
   },
   appbarTitle: {
     color: '#fff',
     fontSize: 18,
+  },
+  memoList: {
+    width: '100%',
+    flex: 1,
+    paddingTop: 78,
+    backgroundColor: '#fff',
+  },
+  memoListItem: {
+    padding: 16,
+    borderBottomWidth: 1,
+    borderBottomColor: '#ddd',
+  },
+  memoTitle: {
+    fontSize: 18,
+    marginBottom: 4,
+  },
+  memoDate: {
+    fontSize: 12,
+    color: '#a2a2a2',
   },
 });
 
@@ -38,16 +62,12 @@ const App = () => (
         <Text style={styles.memoTitle}>講座のアイテム</Text>
         <Text style={styles.memoDate}>2018/2/13</Text>
       </View>
-    </View>
 
-    <View style={styles.memoList}>
       <View style={styles.memoListItem}>
         <Text style={styles.memoTitle}>講座のアイテム</Text>
         <Text style={styles.memoDate}>2018/2/13</Text>
       </View>
-    </View>
 
-    <View style={styles.memoList}>
       <View style={styles.memoListItem}>
         <Text style={styles.memoTitle}>講座のアイテム</Text>
         <Text style={styles.memoDate}>2018/2/13</Text>
@@ -55,7 +75,7 @@ const App = () => (
     </View>
 
     <View>
-      +
+      <Text>+</Text>
     </View>
   </View>
 );
