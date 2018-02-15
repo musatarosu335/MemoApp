@@ -47,6 +47,25 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: '#a2a2a2',
   },
+  memoAddButton: {
+    position: 'absolute',
+    bottom: 32,
+    right: 32,
+    width: 48,
+    height: 48,
+    backgroundColor: '#E31676',
+    borderRadius: 24,
+    justifyContent: 'center',
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.4,
+    shadowRadius: 3,
+  },
+  memoAddButtonTitle: {
+    fontSize: 24,
+    lineHeight: 24,
+  },
 });
 
 const App = () => (
@@ -74,8 +93,8 @@ const App = () => (
       </View>
     </View>
 
-    <View>
-      <Text>+</Text>
+    <View style={styles.memoAddButton}>
+      <Text style={styles.memoAddButtonTitle}>+</Text>
     </View>
   </View>
 );
