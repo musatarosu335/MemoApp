@@ -18,7 +18,7 @@ const App = () => (
   <View style={styles.container}>
     <Appbar />
     <MemoList />
-    <CircleButton />
+    <CircleButton>+</CircleButton>
   </View>
 );
 
