@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 const styles = StyleSheet.create({
-  memoAddButton: {
+  circleButton: {
     position: 'absolute',
     bottom: 32,
     right: 32,
@@ -17,15 +17,15 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.4,
     shadowRadius: 3,
   },
-  memoAddButtonTitle: {
+  circleButtonTitle: {
     fontSize: 24,
     lineHeight: 24,
   },
 });
 
 const CircleButton = () => (
-  <View style={styles.memoAddButton}>
-    <Text style={styles.memoAddButtonTitle}>+</Text>
+  <View style={styles.circleButton}>
+    <Text style={styles.circleButtonTitle}>+</Text>
   </View>
 );
 
