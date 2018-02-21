@@ -23,10 +23,10 @@ const styles = StyleSheet.create({
   },
 });
 
-const MemoAddButton = () => (
+const CircleButton = () => (
   <View style={styles.memoAddButton}>
     <Text style={styles.memoAddButtonTitle}>+</Text>
   </View>
 );
 
-export default MemoAddButton;
+export default CircleButton;

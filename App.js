@@ -3,7 +3,7 @@ import { StyleSheet, View } from 'react-native';
 
 import Appbar from './src/components/Appbar';
 import MemoList from './src/components/MemoList';
-import MemoAddButton from './src/components/MemoAddButton';
+import CircleButton from './src/elements/CircleButton';
 
 const styles = StyleSheet.create({
   container: {
@@ -18,7 +18,7 @@ const App = () => (
   <View style={styles.container}>
     <Appbar />
     <MemoList />
-    <MemoAddButton />
+    <CircleButton />
   </View>
 );
 
