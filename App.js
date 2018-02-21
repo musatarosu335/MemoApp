@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import Appbar from './src/components/Appbar';
 import MemoList from './src/components/MemoList';
 
 const styles = StyleSheet.create({
@@ -8,26 +9,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fffdf6',
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  appbar: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    height: 78,
-    paddingTop: 30,
-    backgroundColor: '#265366',
-    justifyContent: 'center',
-    alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.9,
-    shadowRadius: 3,
-    zIndex: 10,
-  },
-  appbarTitle: {
-    color: '#fff',
-    fontSize: 18,
   },
   memoAddButton: {
     position: 'absolute',
@@ -52,13 +33,8 @@ const styles = StyleSheet.create({
 
 const App = () => (
   <View style={styles.container}>
-    <View style={styles.appbar}>
-      <View>
-        <Text style={styles.appbarTitle}>MEMOT</Text>
-      </View>
-    </View>
+    <Appbar />
     <MemoList />
-
     <View style={styles.memoAddButton}>
       <Text style={styles.memoAddButtonTitle}>+</Text>
     </View>
