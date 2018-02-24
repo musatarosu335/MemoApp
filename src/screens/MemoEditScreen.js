@@ -6,9 +6,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: '100%',
+    marginTop: 78,
   },
   memoEditInput: {
-    marginTop: 78,
     flex: 1,
     paddingTop: 32,
     paddingLeft: 16,

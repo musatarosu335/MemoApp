@@ -6,9 +6,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: '100%',
+    marginTop: 78,
   },
   memoHeader: {
-    marginTop: 78,
     padding: 10,
     height: 100,
     backgroundColor: '#17313c',
