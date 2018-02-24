@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
 const MemoListScreen = () => (
   <View style={styles.container}>
     <MemoList />
-    <CircleButton>+</CircleButton>
+    <CircleButton>{'\uf067'}</CircleButton>
   </View>
 );
 
