@@ -7,13 +7,17 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: '100%',
+    backgroundColor: '#fffdf6',
+  },
+  addButton: {
+    bottom: 32,
   },
 });
 
 const MemoListScreen = () => (
   <View style={styles.container}>
     <MemoList />
-    <CircleButton>{'\uf067'}</CircleButton>
+    <CircleButton style={styles.addButton}>{'\uf067'}</CircleButton>
   </View>
 );
 

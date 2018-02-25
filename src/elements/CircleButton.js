@@ -68,5 +68,9 @@ export default class CircleButton extends React.Component {
 CircleButton.propTypes = {
   children: PropTypes.string.isRequired,
   style: PropTypes.number.isRequired,
-  color: PropTypes.string.isRequired,
+  color: PropTypes.string,
+};
+
+CircleButton.defaultProps = {
+  color: 'white',
 };
