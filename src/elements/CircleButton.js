@@ -73,6 +73,7 @@ CircleButton.propTypes = {
   children: PropTypes.string.isRequired,
   style: PropTypes.number.isRequired,
   color: PropTypes.string,
+  onPress: PropTypes.func.isRequired,
 };
 
 CircleButton.defaultProps = {

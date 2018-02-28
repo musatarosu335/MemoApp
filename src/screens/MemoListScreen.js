@@ -15,7 +15,6 @@ const styles = StyleSheet.create({
 });
 
 const MemoListScreen = props => (
-  // props.navigation.navigate('MemoDetail');
   <View style={styles.container}>
     <MemoList navigation={props.navigation} />
     <CircleButton

@@ -6,7 +6,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: '100%',
-    marginTop: 78,
   },
   memoHeader: {
     padding: 10,
@@ -33,7 +32,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   editButton: {
-    top: 154,
+    top: 78,
   },
 });
 
