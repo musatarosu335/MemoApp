@@ -14,9 +14,10 @@ const styles = StyleSheet.create({
   },
 });
 
-const MemoListScreen = () => (
+const MemoListScreen = props => (
+  // props.navigation.navigate('MemoDetail');
   <View style={styles.container}>
-    <MemoList />
+    <MemoList navigation={props.navigation} />
     <CircleButton style={styles.addButton}>{'\uf067'}</CircleButton>
   </View>
 );
