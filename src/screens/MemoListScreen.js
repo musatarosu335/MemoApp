@@ -18,7 +18,12 @@ const MemoListScreen = props => (
   // props.navigation.navigate('MemoDetail');
   <View style={styles.container}>
     <MemoList navigation={props.navigation} />
-    <CircleButton style={styles.addButton}>{'\uf067'}</CircleButton>
+    <CircleButton
+      style={styles.addButton}
+      onPress={() => (props.navigation.navigate('MemoEdit'))}
+    >
+      {'\uf067'}
+    </CircleButton>
   </View>
 );
 
