@@ -14,6 +14,8 @@ const App = StackNavigator({
 }, {
   navigationOptions: {
     headerTitle: 'Memot',
+    headerTintColor: '#fff',
+    headerBackTitle: null,
     headerStyle: {
       backgroundColor: '#265366',
     },

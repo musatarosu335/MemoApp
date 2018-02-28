@@ -18,10 +18,12 @@ const styles = StyleSheet.create({
   },
 });
 
-const MemoEditScreen = () => (
+const MemoEditScreen = props => (
   <View style={styles.container}>
     <TextInput style={styles.memoEditInput} multiline value="Hi" />
-    <CircleButton>{'\uf00c'}</CircleButton>
+    <CircleButton onPress={() => (props.navigation.goBack())}>
+      {'\uf00c'}
+    </CircleButton>
   </View>
 );
 
