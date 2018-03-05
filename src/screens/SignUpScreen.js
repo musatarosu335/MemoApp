@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Text, TextInput, TouchableHighlight } from 'react-native';
+import firebase from 'firebase';
 
 const styles = StyleSheet.create({
   container: {
@@ -36,15 +37,55 @@ const styles = StyleSheet.create({
   },
 });
 
-const SignUpScreen = () => (
-  <View style={styles.container}>
-    <Text style={styles.title}>メンバー登録</Text>
-    <TextInput style={styles.input} value="Email Address" />
-    <TextInput style={styles.input} value="Password" />
-    <TouchableHighlight style={styles.button} underlayColor="#C70F66" onPress={() => {}}>
-      <Text style={styles.buttonTitle}>送信する</Text>
-    </TouchableHighlight>
-  </View>
-);
+export default class SignUpScreen extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: '',
+      password: '',
+    };
+  }
 
-export default SignUpScreen;
+  handleSubmit() {
+    firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
+      .then((user) => {
+        console.log('success');
+        console.log(user);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.title}>メンバー登録</Text>
+        <TextInput
+          style={styles.input}
+          value={this.state.email}
+          onChangeText={text => this.setState({ email: text })}
+          autoCapitalize="none"
+          autoCorrect={false}
+          placeholder="Email Asress"
+        />
+        <TextInput
+          style={styles.input}
+          value={this.state.password}
+          onChangeText={text => this.setState({ password: text })}
+          autoCapitalize="none"
+          autoCorrect={false}
+          placeholder="Password"
+          secureTextEntry
+        />
+        <TouchableHighlight
+          style={styles.button}
+          underlayColor="#C70F66"
+          onPress={() => this.handleSubmit()}
+        >
+          <Text style={styles.buttonTitle}>送信する</Text>
+        </TouchableHighlight>
+      </View>
+    );
+  }
+}
