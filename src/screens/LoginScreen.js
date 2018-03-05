@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Text, TextInput, TouchableHighlight } from 'react-native';
+import firebase from 'firebase';
 
 const styles = StyleSheet.create({
   container: {
@@ -46,7 +47,14 @@ export default class LoginScreen extends React.Component {
   }
 
   handleSubmit() {
-    // () => (this.props.navigation.navigate('Home'))
+    firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
+      .then((user) => {
+        console.log(`suscess, ${user}`);
+        this.props.navigation.navigate('Home');
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   render() {
