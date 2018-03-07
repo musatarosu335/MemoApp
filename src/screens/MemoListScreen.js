@@ -21,16 +21,16 @@ export default class MemoListScreen extends React.Component {
   // eslint-disable-next-line
   handlePress() {
     const db = firebase.firestore();
-    const uid = '5IYXLegDNYNEeOvmiyOjmOnQ2U73';
+    const { uid } = this.params.currentUser;
     db.collection(`users/${uid}/memos`).add({
       body: 'test memo',
       createdOn: '2018-03-06',
     })
       .then((docRef) => {
-        console.log("Document written with ID: ", docRef.id);
+        console.log('Document written with ID: ', docRef.id);
       })
       .catch((err) => {
-        console.error("Error adding document: ", err);
+        console.error('Error adding document: ', err);
       });
   }
 
