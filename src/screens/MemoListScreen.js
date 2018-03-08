@@ -16,8 +16,7 @@ const styles = StyleSheet.create({
 
 export default class MemoListScreen extends React.Component {
   handlePress() {
-    const { params } = this.props.navigation.state;
-    this.props.navigation.navigate('MemoCreate', { currentUser: params.currentUser });
+    this.props.navigation.navigate('MemoCreate');
   }
 
   render() {
