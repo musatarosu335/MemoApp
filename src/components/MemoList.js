@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
+import { StyleSheet, Text, View, TouchableHighlight, FlatList } from 'react-native';
 import PropTypes from 'prop-types';
 
 const styles = StyleSheet.create({
@@ -27,17 +27,32 @@ const MemoList = (props) => {
   const memos = props.memoList;
   return (
     <View style={styles.memoList}>
-      {memos.map(memo => (
-        <TouchableHighlight
-          key={memo.createdOn}
-          onPress={() => (props.navigation.navigate('MemoDetail'))}
-        >
-          <View style={styles.memoListItem}>
-            <Text style={styles.memoTitle}>{memo.body}</Text>
-            <Text style={styles.memoDate}>2018.03.08</Text>
-          </View>
-        </TouchableHighlight>
-      ))}
+      <FlatList
+        data={memos}
+        renderItem={({ item }) => (
+          <TouchableHighlight
+            onPress={() => (props.navigation.navigate('MemoDetail'))}
+          >
+            <View style={styles.memoListItem}>
+              <Text style={styles.memoTitle}>{item.body}</Text>
+              <Text style={styles.memoDate}>2018.03.08</Text>
+            </View>
+          </TouchableHighlight>
+        )}
+      />
+      {/*
+        {memos.map(memo => (
+          <TouchableHighlight
+            key={memo.createdOn}
+            onPress={() => (props.navigation.navigate('MemoDetail'))}
+          >
+            <View style={styles.memoListItem}>
+              <Text style={styles.memoTitle}>{memo.body}</Text>
+              <Text style={styles.memoDate}>2018.03.08</Text>
+            </View>
+          </TouchableHighlight>
+        ))}
+      */}
     </View>
   );
 };
