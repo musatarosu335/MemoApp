@@ -31,11 +31,11 @@ const MemoList = (props) => {
         data={memos}
         renderItem={({ item }) => (
           <TouchableHighlight
-            onPress={() => (props.navigation.navigate('MemoDetail'))}
+            onPress={() => (props.navigation.navigate('MemoDetail', { memo: item }))}
           >
             <View style={styles.memoListItem}>
               <Text style={styles.memoTitle}>{item.body}</Text>
-              <Text style={styles.memoDate}>2018.03.08</Text>
+              <Text style={styles.memoDate}>{String(item.createdOn)}</Text>
             </View>
           </TouchableHighlight>
         )}

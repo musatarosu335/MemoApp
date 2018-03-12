@@ -36,29 +36,47 @@ const styles = StyleSheet.create({
   },
 });
 
-const MemoDetailScreen = props => (
-  <View style={styles.container}>
-    <View>
-      <View style={styles.memoHeader}>
+export default class MemoDetailScreen extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      memo: {},
+    };
+  }
+
+  componentWillMount() {
+    const { params } = this.props.navigation.state;
+    this.setState({
+      memo: params.memo,
+    });
+  }
+
+  render() {
+    const { memo } = this.state;
+
+    return (
+      <View style={styles.container}>
         <View>
-          <Text style={styles.memoHeaderTitle}>講座のアイデア</Text>
-          <Text style={styles.memoHeaderDate}>Yesterday</Text>
+          <View style={styles.memoHeader}>
+            <View>
+              <Text style={styles.memoHeaderTitle}>{memo.body}</Text>
+              <Text style={styles.memoHeaderDate}>{String(memo.createdOn)}</Text>
+            </View>
+          </View>
         </View>
+
+        <View style={styles.memoContent}>
+          <Text>{memo.body}</Text>
+        </View>
+
+        <CircleButton
+          color="white"
+          style={styles.editButton}
+          onPress={() => (this.props.navigation.navigate('MemoEdit'))}
+        >
+          {'\uf040'}
+        </CircleButton>
       </View>
-    </View>
-
-    <View style={styles.memoContent}>
-      <Text> 講座のタイトル</Text>
-    </View>
-
-    <CircleButton
-      color="white"
-      style={styles.editButton}
-      onPress={() => (props.navigation.navigate('MemoEdit'))}
-    >
-      {'\uf040'}
-    </CircleButton>
-  </View>
-);
-
-export default MemoDetailScreen;
+    );
+  }
+}
