@@ -49,8 +49,7 @@ export default class MemoEditScreen extends React.Component {
         body: this.state.body,
       })
       .then(() => {
-        // eslint-disable-next-line
-        console.log('success!');
+        this.props.navigation.goBack();
       })
       .catch((err) => {
         // eslint-disable-next-line

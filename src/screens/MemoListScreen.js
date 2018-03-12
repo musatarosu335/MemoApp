@@ -27,6 +27,16 @@ export default class MemoListScreen extends React.Component {
     const { currentUser } = firebase.auth();
     const db = firebase.firestore();
     db.collection(`users/${currentUser.uid}/memos`)
+      .onSnapshot((snapshot) => {
+        const memoList = [];
+        snapshot.forEach((doc) => {
+          memoList.push({ ...doc.data(), key: doc.id });
+        });
+        this.setState({
+          memoList,
+        });
+      });
+      /*
       .get()
       .then((snapshot) => {
         const memoList = [];
@@ -40,6 +50,7 @@ export default class MemoListScreen extends React.Component {
       .catch((err) => {
         console.log(err);
       });
+      */
   }
 
   handlePress() {
