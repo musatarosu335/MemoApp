@@ -31,10 +31,19 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     flex: 1,
   },
+  memoBody: {
+    lineHeight: 22,
+    fontSize: 15,
+  },
   editButton: {
     top: 78,
   },
 });
+
+const dateString = (date) => {
+  const str = date.toISOString();
+  return str.split('T')[0];
+};
 
 export default class MemoDetailScreen extends React.Component {
   constructor(props) {
@@ -59,14 +68,16 @@ export default class MemoDetailScreen extends React.Component {
         <View>
           <View style={styles.memoHeader}>
             <View>
-              <Text style={styles.memoHeaderTitle}>{memo.body}</Text>
-              <Text style={styles.memoHeaderDate}>{String(memo.createdOn)}</Text>
+              <Text style={styles.memoHeaderTitle}>{memo.body.substring(0, 10)}</Text>
+              <Text style={styles.memoHeaderDate}>{dateString(memo.createdOn)}</Text>
             </View>
           </View>
         </View>
 
         <View style={styles.memoContent}>
-          <Text>{memo.body}</Text>
+          <Text style={styles.memoBody}>
+            {memo.body}
+          </Text>
         </View>
 
         <CircleButton
