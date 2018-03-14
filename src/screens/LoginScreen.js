@@ -1,5 +1,7 @@
 import React from 'react';
-import { StyleSheet, View, Text, TextInput, TouchableHighlight } from 'react-native';
+import {
+  StyleSheet, View, Text, TextInput, TouchableHighlight } from 'react-native';
+import { NavigationActions } from 'react-navigation';
 import firebase from 'firebase';
 
 const styles = StyleSheet.create({
@@ -49,10 +51,18 @@ export default class LoginScreen extends React.Component {
   handleSubmit() {
     firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
       .then((user) => {
-        // console.log(user);
-        this.props.navigation.navigate('Home');
+        // eslint-disable-next-line
+        console.log('success!', user);
+        const resetAction = NavigationActions.reset({
+          index: 0,
+          actions: [
+            NavigationActions.navigate({ routeName: 'Home' }),
+          ],
+        });
+        this.props.navigation.dispatch(resetAction);
       })
       .catch((err) => {
+        // eslint-disable-next-line
         console.log(err);
       });
   }
