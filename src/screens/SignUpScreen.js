@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Text, TextInput, TouchableHighlight } from 'react-native';
+import { NavigationActions } from 'react-navigation';
 import firebase from 'firebase';
 
 const styles = StyleSheet.create({
@@ -49,9 +50,18 @@ export default class SignUpScreen extends React.Component {
   handleSubmit() {
     firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
       .then((user) => {
-        this.props.navigation.navigate('Home');
+        // eslint-disable-next-line
+        console.log('success!', user);
+        const resetAction = NavigationActions.reset({
+          index: 0,
+          actions: [
+            NavigationActions.navigate({ routeName: 'Home' }),
+          ],
+        });
+        this.props.navigation.dispatch(resetAction);
       })
       .catch((err) => {
+        // eslint-disable-next-line
         console.log(err);
       });
   }
