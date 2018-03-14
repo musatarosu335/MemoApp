@@ -42,6 +42,10 @@ const styles = StyleSheet.create({
 });
 
 const dateString = (date) => {
+  if (date === null) {
+    return '';
+  }
+
   const str = date.toISOString();
   return str.split('T')[0];
 };
