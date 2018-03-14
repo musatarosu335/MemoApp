@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { StyleSheet, View, TextInput } from 'react-native';
 import firebase from 'firebase';
 import CircleButton from '../elements/CircleButton';
@@ -75,3 +76,10 @@ export default class MemoEditScreen extends React.Component {
     );
   }
 }
+
+MemoEditScreen.propTypes = {
+  navigation: PropTypes.shape({
+    state: PropTypes.object.isRequired,
+    goBack: PropTypes.func.isRequired,
+  }).isRequired,
+};

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { StyleSheet, View, Text } from 'react-native';
 import CircleButton from '../elements/CircleButton';
 
@@ -91,3 +92,10 @@ export default class MemoDetailScreen extends React.Component {
     );
   }
 }
+
+MemoDetailScreen.propTypes = {
+  navigation: PropTypes.shape({
+    state: PropTypes.object.isRequired,
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
+};

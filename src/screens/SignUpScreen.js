@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { StyleSheet, View, Text, TextInput, TouchableHighlight } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 import firebase from 'firebase';
@@ -98,3 +99,9 @@ export default class SignUpScreen extends React.Component {
     );
   }
 }
+
+SignUpScreen.propTypes = {
+  navigation: PropTypes.shape({
+    dispatch: PropTypes.func.isRequired,
+  }).isRequired,
+};

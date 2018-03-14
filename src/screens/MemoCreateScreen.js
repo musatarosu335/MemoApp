@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { StyleSheet, View, TextInput } from 'react-native';
 import firebase from 'firebase';
 import CircleButton from '../elements/CircleButton';
@@ -40,10 +41,12 @@ export default class MemoCreateScreen extends React.Component {
       createdOn: new Date(),
     })
       .then((docRef) => {
+        // eslint-disable-next-line
         console.log('Document written with ID: ', docRef.id);
         this.props.navigation.goBack();
       })
       .catch((err) => {
+        // eslint-disable-next-line
         console.error('Error adding document: ', err);
       });
   }
@@ -66,3 +69,9 @@ export default class MemoCreateScreen extends React.Component {
     );
   }
 }
+
+MemoCreateScreen.propTypes = {
+  navigation: PropTypes.shape({
+    goBack: PropTypes.func.isRequired,
+  }).isRequired,
+};

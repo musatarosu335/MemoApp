@@ -45,25 +45,15 @@ const MemoList = (props) => {
           </TouchableHighlight>
         )}
       />
-      {/*
-        {memos.map(memo => (
-          <TouchableHighlight
-            key={memo.createdOn}
-            onPress={() => (props.navigation.navigate('MemoDetail'))}
-          >
-            <View style={styles.memoListItem}>
-              <Text style={styles.memoTitle}>{memo.body}</Text>
-              <Text style={styles.memoDate}>2018.03.08</Text>
-            </View>
-          </TouchableHighlight>
-        ))}
-      */}
     </View>
   );
 };
 
 MemoList.propTypes = {
   memoList: PropTypes.array.isRequired,
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
 export default MemoList;

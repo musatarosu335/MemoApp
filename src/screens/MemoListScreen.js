@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { StyleSheet, View, Text } from 'react-native';
 import firebase from 'firebase';
 import MemoList from '../components/MemoList';
@@ -36,21 +37,6 @@ export default class MemoListScreen extends React.Component {
           memoList,
         });
       });
-      /*
-      .get()
-      .then((snapshot) => {
-        const memoList = [];
-        snapshot.forEach((doc) => {
-          memoList.push({ ...doc.data(), key: doc.id });
-        });
-        this.setState({
-          memoList,
-        });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-      */
   }
 
   handlePress() {
@@ -85,3 +71,9 @@ export default class MemoListScreen extends React.Component {
     );
   }
 }
+
+MemoListScreen.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
+};
